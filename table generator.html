@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .home-button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+        }
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .auth-buttons button {
+            padding: 8px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .login-btn {
+            background-color: #007bff;
+            color: white;
+        }
+        .signup-btn {
+            background-color: #17a2b8;
+            color: white;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .input-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .input-field {
+            padding: 10px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .get-results-btn {
+            display: block;
+            margin: 0 auto;
+            padding: 12px 30px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .table {
+            max-width: 300px;
+            margin: 30px auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            background-color: #f8f9fa;
+        }
+        .table h3 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+        .table-row {
+            display: flex;
+            justify-content: center;
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .table-row:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="#" class="home-button">Home page</a>
+        <div class="auth-buttons">
+            <button class="login-btn" onclick="window.location.href='home page.html'">Login</button>
+            <button class="signup-btn" onclick="window.location.href='signup.html'">Sign up</button>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h1 class="title">Table Generator</h1>
+        
+        <div class="input-group">
+            <input type="number" id="tableNumber" class="input-field" placeholder="Table number">
+            <input type="number" id="endingNumber" class="input-field" placeholder="Table ending number">
+        </div>
+        
+        <button onclick="generateTable()" class="get-results-btn">Get Results</button>
+        
+        <div id="tableContainer"></div>
+    </div>
+
+    <script>
+        function generateTable() {
+            const tableNumber = parseInt(document.getElementById('tableNumber').value);
+            const endingNumber = parseInt(document.getElementById('endingNumber').value);
+            
+            if (!tableNumber || !endingNumber) {
+                alert('Please enter both numbers');
+                return;
+            }
+            
+            const container = document.getElementById('tableContainer');
+            container.innerHTML = '';
+            
+            const tableDiv = document.createElement('div');
+            tableDiv.className = 'table';
+            
+            const tableTitle = document.createElement('h3');
+            tableTitle.textContent = `Table of ${tableNumber}`;
+            tableDiv.appendChild(tableTitle);
+            
+            for (let i = 1; i <= endingNumber; i++) {
+                const row = document.createElement('div');
+                row.className = 'table-row';
+                row.textContent = `${tableNumber} × ${i} = ${tableNumber * i}`;
+                tableDiv.appendChild(row);
+            }
+            
+            container.appendChild(tableDiv);
+        }
+    </script>
+</body>
+</html>

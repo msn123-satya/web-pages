@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a New Account</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin: 0;
+            color: #333;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #666;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .name-fields input {
+            width: 48%;
+            margin: 5px 1%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .dob,
+        .gender {
+            text-align: left;
+            margin: 15px 0;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .dob-select select,
+        .gender-options input {
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100px;
+        }
+
+        .gender-options label {
+            display: inline-block;
+            margin-right: 10px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #42b72a;
+            color: white;
+            font-size: 16px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 20px 0;
+        }
+
+        button:hover {
+            background-color: #36a420;
+        }
+
+        .already-account a {
+            color: #1877f2;
+            text-decoration: none;
+        }
+
+        .already-account a:hover {
+            text-decoration: underline;
+        }
+
+        .terms a {
+            color: #1877f2;
+            text-decoration: none;
+        }
+
+        .terms a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Create a new account</h1>
+        <p>It's quick and easy.</p>
+        <form id="signup-form">
+            <div class="name-fields">
+                <input type="text" placeholder="First name" required>
+                <input type="text" placeholder="Surname" required>
+            </div>
+            <div class="dob">
+                <label for="dob">Date of birth</label>
+                <div class="dob-select">
+                    <select name="day" id="day" required>
+                        <option value="">Day</option>
+                        <!-- Days will be populated dynamically -->
+                    </select>
+                    <select name="month" id="month" required>
+                        <option value="">Month</option>
+                        <option value="1">Jan</option>
+                        <option value="2">Feb</option>
+                        <option value="3">Mar</option>
+                        <option value="4">Apr</option>
+                        <option value="5">May</option>
+                        <option value="6">Jun</option>
+                        <option value="7">Jul</option>
+                        <option value="8">Aug</option>
+                        <option value="9">Sep</option>
+                        <option value="10">Oct</option>
+                        <option value="11">Nov</option>
+                        <option value="12">Dec</option>
+                    </select>
+                    <select name="year" id="year" required>
+                        <option value="">Year</option>
+                        <!-- Years will be populated dynamically -->
+                    </select>
+                </div>
+            </div>
+            <div class="gender">
+                <label for="gender">Gender</label>
+                <div class="gender-options">
+                    <label><input type="radio" name="gender" value="Female" required> Female</label>
+                    <label><input type="radio" name="gender" value="Male" required> Male</label>
+                    <label><input type="radio" name="gender" value="Custom" required> Custom</label>
+                </div>
+            </div>
+            <input type="text" placeholder="Mobile number or email address" required>
+            <input type="password" placeholder="New password" required>
+            <p class="terms">
+                By clicking Sign Up, you agree to our 
+                <a href="#">Terms</a>, <a href="#">Privacy Policy</a>, and <a href="#">Cookies Policy</a>.
+                You may receive SMS notifications from us and can opt out at any time.
+            </p>
+            <button type="submit">Sign Up</button>
+        </form>
+        <p class="already-account"><a href="home page.html">Already have an account?</a></p>
+    </div>
+
+    <script>
+        // Populate Day Dropdown
+        const daySelect = document.getElementById("day");
+        for (let i = 1; i <= 31; i++) {
+            const option = document.createElement("option");
+            option.value = i;
+            option.textContent = i;
+            daySelect.appendChild(option);
+        }
+
+        // Populate Year Dropdown
+        const yearSelect = document.getElementById("year");
+        const currentYear = new Date().getFullYear();
+        for (let i = currentYear; i >= 1900; i--) {
+            const option = document.createElement("option");
+            option.value = i;
+            option.textContent = i;
+            yearSelect.appendChild(option);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>BMI Calculator</title>
+    <style> body {font-family: Arial, sans-serif;margin: 0;padding: 20px;}.container {max-width: 800px;margin: 0 auto; }.header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .home-button {
+            background-color: #15803d;
+            color: white;
+            padding: 10px 24px;
+            border: none;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .home-button:hover {
+            background-color: #166534;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .login-button {
+            background-color: #3b82f6;
+            color: white;
+            padding: 8px 16px;
+            border: 1px solid #2563eb;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .signup-button {
+            background-color: white;
+            color: #ef4444;
+            padding: 8px 16px;
+            border: 1px solid #ef4444;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .calculator-container {
+            border: 2px solid #e5e7eb;
+            padding: 24px;
+            border-radius: 8px;
+        }
+
+        .calculator-title {
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: bold;
+            border: 2px solid #e5e7eb;
+            padding: 8px;
+            margin-bottom: 24px;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .input-label {
+            width: 150px;
+            border: 2px solid #e5e7eb;
+            padding: 8px;
+        }
+
+        .equals-sign {
+            color: #0e7490;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .input-field {
+            flex: 1;
+            border: 2px solid #e5e7eb;
+            padding: 8px;
+        }
+
+        .result-box {
+            min-height: 42px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <button class="home-button" onclick="window.location.href = 'msn home page.html'">Home page</button>
+            <div class="auth-buttons">
+                <button class="login-button" onclick="window.location.href='home page.html'">Login</button>
+                <button class="signup-button" onclick="window.location.href='signup.html'">Sign up</button>
+            </div>
+        </div>
+
+        <div class="calculator-container">
+            <div class="calculator-title">BMI CALCULATOR</div>
+
+            <div class="input-group">
+                <div class="input-label">Weight in Kg</div>
+                <div class="equals-sign">=</div>
+                <input type="number" id="weight" class="input-field" placeholder="Enter weight" oninput="calculateBMI()">
+            </div>
+
+            <div class="input-group">
+                <div class="input-label">Height in cm</div>
+                <div class="equals-sign">=</div>
+                <input type="number" id="height" class="input-field" placeholder="Enter height" oninput="calculateBMI()">
+            </div>
+
+            <div class="input-group">
+                <div class="input-label">RESULT</div>
+                <div class="equals-sign">=</div>
+                <div id="result" class="input-field result-box"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculateBMI() {
+            const weight = document.getElementById('weight').value;
+            const height = document.getElementById('height').value;
+            const resultElement = document.getElementById('result');
+
+            if (weight && height) {
+                const heightInMeters = height / 100;
+                const bmi = (weight / (heightInMeters * heightInMeters)).toFixed(2);
+                
+                let category = '';
+                if (bmi < 18.5) {
+                    category = 'Underweight';
+                } else if (bmi >= 18.5 && bmi < 25) {
+                    category = 'Normal weight';
+                } else if (bmi >= 25 && bmi < 30) {
+                    category = 'Overweight';
+                } else {
+                    category = 'Obese';
+                }
+                
+                resultElement.textContent = `BMI: ${bmi} - ${category}`;
+            } else {
+                resultElement.textContent = '';
+            }
+        }
+
+        function goHome() {
+            // You can add navigation logic here
+            alert('Navigating to home page...');
+            // Or use: window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

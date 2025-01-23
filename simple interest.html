@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Interest Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .home-button {
+            background-color: #2e7d32;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .login-button {
+            background-color: #1976d2;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .signup-button {
+            background-color: #00b0ff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .calculator-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .calculator-title {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 10px;
+        }
+
+        .input-label {
+            flex: 1;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .equals-sign {
+            font-weight: bold;
+            color: #0277bd;
+            font-size: 20px;
+        }
+
+        .result-field {
+            flex: 1;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f8f8f8;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a class="home-button" onclick="window.location.href='msn home page.html'">Home page</a>
+        <div class="auth-buttons">
+            <button class="login-button" onclick="window.location.href='home page.html'">Login</button>
+            <button class="signup-button" onclick="window.location.href='signup.html'">Sign up</button>
+        </div>
+    </div>
+
+    <div class="calculator-container">
+        <h2 class="calculator-title">Simple Interest Calculator</h2>
+        
+        <div class="input-group">
+            <div class="input-label">Total Amount in Rupees</div>
+            <div class="equals-sign">=</div>
+            <div class="result-field">
+                <input type="number" id="principal" onchange="calculateInterest()">
+            </div>
+        </div>
+
+        <div class="input-group">
+            <div class="input-label">Time in years</div>
+            <div class="equals-sign">=</div>
+            <div class="result-field">
+                <input type="number" id="time" onchange="calculateInterest()">
+            </div>
+        </div>
+
+        <div class="input-group">
+            <div class="input-label">Interest rate in percentage</div>
+            <div class="equals-sign">=</div>
+            <div class="result-field">
+                <input type="number" id="rate" onchange="calculateInterest()">
+            </div>
+        </div>
+
+        <div class="input-group">
+            <div class="input-label">Interest</div>
+            <div class="equals-sign">=</div>
+            <div class="result-field">
+                <input type="text" id="interest" readonly>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculateInterest() {
+            const principal = parseFloat(document.getElementById('principal').value) || 0;
+            const time = parseFloat(document.getElementById('time').value) || 0;
+            const rate = parseFloat(document.getElementById('rate').value) || 0;
+            
+            const interest = (principal * time * rate) / 100;
+            document.getElementById('interest').value = interest.toFixed(2);
+        }
+    </script>
+</body>
+</html>
