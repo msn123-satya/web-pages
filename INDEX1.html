@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Tools</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            padding: 2rem;
+            max-width: 896px;
+            margin: 0 auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .home-title {
+            background-color: #15803d;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+        }
+
+        .home-title h1 {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .auth-buttons button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1rem;
+        }
+
+        .calculator-btn {
+            padding: 1rem;
+            border: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1rem;
+            min-height: 96px;
+            width: 100%;
+        }
+
+        .login-btn {
+            background-color: #3b82f6;
+            color: white;
+        }
+
+        .login-btn:hover {
+            background-color: #2563eb;
+        }
+
+        .signup-btn {
+            background-color: #ef4444;
+            color: white;
+        }
+
+        .signup-btn:hover {
+            background-color: #dc2626;
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .calculator-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .calculator-btn {
+            background-color: #3b82f6;
+            color: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .calculator-btn:hover {
+            background-color: #2563eb;
+        }
+
+        .calculator-btn.cyan {
+            background-color: #06b6d4;
+        }
+
+        .calculator-btn.cyan:hover {
+            background-color: #0891b2;
+        }
+
+        .calculator-btn.cyan-dark {
+            background-color: #155e75;
+        }
+
+        .calculator-btn.cyan-dark:hover {
+            background-color: #164e63;
+        }
+
+        .calculator-btn.green {
+            background-color: #bbf7d0;
+            color: #111827;
+        }
+
+        .calculator-btn.green:hover {
+            background-color: #86efac;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="home-title">
+                <h1>Home page</h1>
+            </div>
+            <div class="auth-buttons">
+                <button class="login-btn" onclick="window.location.href='login.html'">Login</button>
+                <button class="signup-btn" onclick="window.location.href='signup.html'">Sign up</button>
+            </div>
+        </div>
+
+        <div class="calculator-grid">
+            <button class="calculator-btn" onclick="window.location.href='Bmi calculator.html'">
+                  BMI Calculator
+            </button>
+            <button class="calculator-btn" onclick="window.location.href='Compound interest calculator.html'">
+                Compound interest calculator
+            </button>
+            <button class="calculator-btn cyan" onclick="window.location.href='calculator.html'">
+                calculator app
+            </button>
+            <button class="calculator-btn cyan-dark" onclick="window.location.href='simple interest.html'">
+                Simple Interest calculator
+            </button>
+            <button class="calculator-btn" onclick="window.location.href='table generator.html'">
+                Table generator
+            </button>
+            <button class="calculator-btn green" onclick="window.location.href='String legth calculator.html'">
+                String length calculator
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function navigateToCalculator(type) {
+            switch(type) {
+                case 'bmi':
+                    window.location.href = 'bmi-calculator.html';
+                    break;
+                case 'compound-interest':
+                    window.location.href = 'compound-interest.html';
+                    break;
+                case 'calculator':
+                    window.location.href = 'calculator.html';
+                    break;
+                case 'simple-interest':
+                    window.location.href = 'simple-interest.html';
+                    break;
+                case 'table':
+                    window.location.href = 'table-generator.html';
+                    break;
+                case 'string-length':
+                    window.location.href = 'string-length.html';
+                    break;
+                default:
+                    alert('Calculator page not found');
+            }
+        }
+    </script>
+</body>
+</html>
